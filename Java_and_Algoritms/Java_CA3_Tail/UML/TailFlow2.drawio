@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="BtsX4I49MUlJpfZ-mtI5">
-    <mxGraphModel dx="1287" dy="1893" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="965" dy="1420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -153,7 +153,7 @@
             <mxPoint x="400" y="1040" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="21FtehhCqHpiDLUhVcLg-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Remove oldest line" vertex="1">
+        <mxCell id="21FtehhCqHpiDLUhVcLg-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Remove oldest string" vertex="1">
           <mxGeometry height="60" width="120" x="530" y="940" as="geometry" />
         </mxCell>
         <mxCell id="21FtehhCqHpiDLUhVcLg-45" edge="1" parent="1" source="21FtehhCqHpiDLUhVcLg-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="21FtehhCqHpiDLUhVcLg-38" value="">
@@ -181,7 +181,7 @@
         <mxCell id="21FtehhCqHpiDLUhVcLg-36" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="80" width="80" x="359" y="1050" as="geometry" />
         </mxCell>
-        <mxCell id="21FtehhCqHpiDLUhVcLg-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[ More input lines ? ]" vertex="1">
+        <mxCell id="21FtehhCqHpiDLUhVcLg-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="[ More input lines? ]" vertex="1">
           <mxGeometry height="20" width="130" x="410" y="1110" as="geometry" />
         </mxCell>
         <mxCell id="21FtehhCqHpiDLUhVcLg-50" edge="1" parent="1" source="21FtehhCqHpiDLUhVcLg-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="21FtehhCqHpiDLUhVcLg-49" value="">

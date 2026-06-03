@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="9lKXgNJUXul46P5FT7ke">
+    <mxGraphModel dx="772" dy="1136" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s50I2TBBeI35ymBjoE7b-18" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;fillColor=none;" value="Java Tail Class Diagram&amp;nbsp;" vertex="1">
+          <mxGeometry height="380" width="540" x="270" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Tail" vertex="1">
+          <mxGeometry height="184" width="390" x="334" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-2" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ parseK(args: String[]): int " vertex="1">
+          <mxGeometry height="26" width="390" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-4" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ loadTailQueue(scanner: Scanner, k: int): Queue" vertex="1">
+          <mxGeometry height="28" width="390" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-5" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ printQueue(words: Queue&amp;lt;String&amp;gt;, out: PrintStream): void" vertex="1">
+          <mxGeometry height="26" width="390" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-6" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ runTail(k: int, scanner: Scanner, out: PrintStream): void" vertex="1">
+          <mxGeometry height="26" width="390" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-7" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ runTailApp(args: String[], scanner: Scanner, out: PrintStream): void" vertex="1">
+          <mxGeometry height="26" width="390" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-8" parent="s50I2TBBeI35ymBjoE7b-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ main(args: String[]): void    " vertex="1">
+          <mxGeometry height="26" width="390" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-9" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.3;exitY=1.038;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="381" y="403.99800000000005" as="sourcePoint" />
+            <mxPoint x="380" y="479.01" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-10" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Scanner" vertex="1">
+          <mxGeometry height="30" width="140" x="310" y="479.01" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.3;exitY=1.038;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="541" y="404" as="sourcePoint" />
+            <mxPoint x="540" y="479.01199999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-15" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Queue&amp;lt;String&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="470" y="479.01199999999994" as="geometry" />
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.3;exitY=1.038;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="701" y="404" as="sourcePoint" />
+            <mxPoint x="700" y="479.01199999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s50I2TBBeI35ymBjoE7b-17" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="PrintStream" vertex="1">
+          <mxGeometry height="30" width="140" x="630" y="479.01199999999994" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
