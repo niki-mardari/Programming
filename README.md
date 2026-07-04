@@ -16,7 +16,7 @@ This repository contains programming projects and exercises that I have complete
 | `Backend_Dev/`| Backend development practice using Node.js and Express.                     |
 | `React/`      | Frontend projects using React.js. Also includes learning experiments.        |
 | `Web_Dev/`    | HTML, CSS, and JavaScript-based web development exercises and mini-projects.|
-| `.vscode/`    | VS Code settings for consistent formatting and extensions across environments.|
+
 
 ---
 
