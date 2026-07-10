@@ -9,6 +9,7 @@
 #include <bits/stdc++.h> // For memset 
 
 #define LOG(x) std::cout << x << std::endl; // TF is this for?
+// Macro for easy printing to the screen.
 
 int main(){
     // Created on the stack
@@ -41,4 +42,12 @@ int main(){
     *ptr2 = 21;
     std::cin.get();
 }
+
+// Compile with debug symbols:
+// g++ -g pointers.cpp -o pointers.exe
+
+// Run: 
+// gdb .\pointers.exe
+
+
 
