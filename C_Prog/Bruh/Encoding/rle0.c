@@ -26,24 +26,22 @@ int main()
         fgets(line, sizeof(line), input);
         ptr = line;
         // Debugging
-        if(row == 2) break;
+        // if(row == 2) break;
 
         for(int col = 0; col < 240; col++){
-            next = (uint16_t)strtol(ptr, &ptr, 16); // Parsing hex value
-            ptr++; // To skip the commas
-
-            for(int bit = 15; bit >= 0; bit--){
-                bool b = (next >> bit) & 1; // Check each bit  
- 
-                if(b == current) count++;
-                else{
+            next = (uint16_t)strtol(ptr, &ptr, 16); // Parsing hex value, skipping comma
+            ptr++; // To skip the comma location
+            
+            if(current == next) count++;
+            else{
+                if(count > 0){
                     fprintf(stdout, "%d %d\n", current, count);
-                    current = b;
+                    current = next;
                     count = 1;
-                }
+                    }
+                }  
             }
         }
-    }
     fprintf(stdout, "%d %d\n", current, count);
     fclose(input);
 
