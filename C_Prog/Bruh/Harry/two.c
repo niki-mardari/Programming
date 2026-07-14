@@ -30,6 +30,38 @@ void largest(int a, int b, int c, int d){
     } fprintf(stdout, "\nThe largest is: %d\n", strongest);
 }
 
+void count(){
+    int x = 9;
+    for(int i = 0, j = 11; i < 2 && j >= 2; i++, j--){
+    fprintf(stdout, "\n%d  %d  %d", x + i, i, j);
+    }
+    int y = ++x + 21; 
+    // ++x + 21; 
+    // If had ++x + 21 the cpu evaluates it as 31 but alu doesnt write it to anywhere.
+    // Gets discarded or overwritten the next instruction. We didnt tell it to write to mem.
+    // IF, ID, EX, MEM, (WB)
+    printf("\n\n%d\n", y);
+
+    do{
+        ++y;
+        printf("\n%d", y);
+        //printf("\n%d", y++);
+    } while(y < 64);
+}
+
+void isPrime(int a){
+    int decision = 0;
+    for(int i = 1; i < a; i++){
+        if(a%i == 0) {
+        decision = 0;
+        break;
+        }
+        else decision = 1;
+    }
+    if(decision == 1) printf("\nIs Prime");
+    else printf("\nNot Prime");
+}
+
 int main(){
     int a, b ,c, year;
     scanf("%d %d %d", &a, &b, &c);
@@ -38,5 +70,7 @@ int main(){
     leapYear(year);
     lowerCase('A');
     largest(1,2,3,4);
+    count();
+    isPrime(21);
     return 0;
 }
