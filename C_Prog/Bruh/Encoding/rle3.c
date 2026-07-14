@@ -1,4 +1,4 @@
-// Basic rle of a 256 by 256 image
+// Rle for 240 by 320 image
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -14,7 +14,7 @@ void rle(FILE* input, FILE* output){
 
     char* ptr; // To increment each char
 
-    char line[2048]; // 2048 byts to store each row, actually need 240*7 bytes for value and comma
+    char line[2048]; // 2048 bytes to store each row, actually need 240*7 bytes for value and comma
     uint32_t count = 0;
     uint16_t current = -1; // Sentinel value
     uint16_t next;
@@ -51,7 +51,7 @@ void rle(FILE* input, FILE* output){
 
 int main(int argc, char* argv[])
 {
-    if(argc < 2) perror("\nUsage: rle0.exe <filename>.txt");
+    if(argc < 2) perror("\nUsage: rle3.exe <filename>.txt");
     else{
     FILE* input = fopen(argv[1], "r");
     if(!input) return 1;
