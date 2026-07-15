@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h> //For read() and STDIN_FILENO
-#include <termios.h> // For tctgetattr()
+//#include <termios.h> // For tctgetattr()
 
 // To Do: Add comments explaining each line
 
