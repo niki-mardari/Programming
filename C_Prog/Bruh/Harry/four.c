@@ -25,6 +25,7 @@ int main(){
     int* ptr = &i;
 
     MY_VAR(i, ptr);
+    printf("\nThe address of i is %lu", &i);
 
     return 0; 
 }
