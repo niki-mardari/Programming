@@ -41,6 +41,22 @@ int main(){
     fprintf(stdout,"\nThe stack pointer difference is: %lld bytes (1) * (4) bytes", &x - &j); // c automatically assumes pointer is in int (4 bytes)
     fprintf(stdout,"\nOr %lld bytes\n", (char* )&x - (char* )&j); // Convert to char (1 bytes)
 
+    // Pointer are memory locations with addresses to memory locations
+    int n = 8;
+    int* m = &n;
+    printf("Address n = %p\n", &n); // Address of n
+    printf("Address n = %p\n", m); // Adress of n
+    printf("Address m = %p\n", &m); // Address of m
+    printf("Address n = %d\n", n); // n value
+    printf("Address n = %d\n", *(&n)); // value at address of n
+    printf("Address n = %d\n", *m); // value at address m
+
+    // Pointer to a pointer 
+    // Useful when need to change the address in a pointer from inside a function
+    int **k;
+    k = &m;
+    printf("\nThe address that k points to is: %p \nThis location stores a location that points to \n%p which is location of int j of %d\n", k, m, *(&n));
+
     return 0; 
 }
 
