@@ -28,7 +28,7 @@ void printPointerVal(int** k){
 }
 
 void changePtr(int* ptr){
-    ptr -= 1; 
+    ptr -= 1; // Depends on system addressing!
     printf("\nThe value that ptr points to now is: %d\n", *ptr);
 }
 
