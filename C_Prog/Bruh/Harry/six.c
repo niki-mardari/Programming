@@ -7,7 +7,7 @@
 
 void add(int i, int j){
     printf("\n i + j = %d\n", i + j);
-    printf("\nIn a pass by value func, the location of i is: %p location of j is: %p\n", &i, &j);    
+    printf(" \nIn a pass by value func, the location of i is: %p location of j is: %p\n", &i, &j);    
 }
 
 void multiply(int* j){
