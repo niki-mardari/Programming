@@ -210,7 +210,23 @@ void counting(int* ptr, int n){
 
 void multiplication(){
     int multiTable[3][10];
-    int num[3] = {2,5,7};
+    int num[3];
+    int n = 0;
+    int check = 0;
+
+    for(int i = 0; i < 3; i++){
+    printf("\nEnter numbers:");
+    check = scanf("%d", &n);
+    if(check != 1){
+        printf("\nEnter a valid number:");
+        int c; // Cleaning buffer, removing characters until end of line 
+        while(((c = getchar()) != '\n' && c != EOF));
+        i--;
+        continue;
+    }
+    num[i] = n;
+    }
+
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 10; j++){
             multiTable[i][j] = num[i] * (j + 1); 
@@ -218,6 +234,28 @@ void multiplication(){
         }
     printf("\n");
     }
+}
+
+void addressOfArray(){
+    int array[3][3][3];
+    //int* ptr = &array[0][0];
+
+    // Populate 3d array
+    int n = 1;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            for(int k = 0; k < 3; k++){
+            array[i][j][k] = n;
+            n++;
+            printf("\n%d     %p", array[i][j][k], &array[i][j][k]);
+            //ptr++;
+            }
+        }
+    }
+
+    // Print addresses of elements
+
+
 }
 
 int main()
@@ -247,7 +285,8 @@ int main()
     //reverse2(arr, 10);
     //counting(arr, 10);
 
-    multiplication();
+    // multiplication();
+    addressOfArray();
 
     return 0;
 }

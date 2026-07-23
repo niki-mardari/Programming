@@ -15,7 +15,7 @@ int main(){
     if(check != 1){
         printf("\nEnter a valid number:");
         int c; // Cleaning buffer, removing characters until end of line 
-        while((c = getchar() != '\n' && c != EOF));
+        while(((c = getchar()) != '\n' && c != EOF));
         continue;
     }
     if(guess > number) printf("\nIt is lower than that!");
