@@ -181,7 +181,43 @@ void q7(){
         }
         printf("\n");
     }
+}
 
+void reverse2(int* array, int n){
+    int temp;
+    //int newArray[n];
+    for(int i = 0; i < n / 2; i++){
+        temp = array[i];
+        array[i] = array[n - i - 1];
+        array[n - i - 1] = temp;
+    }
+
+    for(int j = 0; j < n; j++){
+        fprintf(stdout, "%d ", array[j]);
+    }
+} 
+
+void counting(int* ptr, int n){
+    int count = 0;
+
+    for(int i = 0; i < n; i++){
+        if(*ptr >= 0) count++;
+        ptr ++;
+    }
+
+    printf("\nTotal positive numbers: %d", count);
+}
+
+void multiplication(){
+    int multiTable[3][10];
+    int num[3] = {2,5,7};
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 10; j++){
+            multiTable[i][j] = num[i] * (j + 1); 
+            printf("%d ", multiTable[i][j]);
+        }
+    printf("\n");
+    }
 }
 
 int main()
@@ -196,17 +232,22 @@ int main()
     //q1();
     //q2();
 
-    int array2[3] = {1,2,3};
-    int* ptr = array2;
-    q3(ptr);
+    //int array2[3] = {1,2,3};
+    //int* ptr = array2;
+    //q3(ptr);
 
-    int arr[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8};
-    display(arr, 10);
-    reverse(arr, 10);
-    display(arr, 10);
+    //int arr[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8};
+    //display(arr, 10);
+    //reverse(arr, 10);
+    //display(arr, 10);
 
-    q6(arr, 10);
-    q7();
+    //q6(arr, 10);
+    //q7();
+    
+    //reverse2(arr, 10);
+    //counting(arr, 10);
+
+    multiplication();
 
     return 0;
 }
