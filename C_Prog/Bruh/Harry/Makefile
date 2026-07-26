@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c23
 
 # To prevent make from thinking that the targets are files, we can use .PHONY to declare them as phony targets. This is useful for targets that do not represent actual files, such as "clean" or "run".
-.PHONY : all run clean one two three four five six seven
+.PHONY : all run clean one two three four five six seven eight
 
 all: one.c two.c three.c
 	$(CC) $(CFLAGS) one.c -o one.exe
@@ -15,6 +15,7 @@ all: one.c two.c three.c
 	$(CC) $(CFLAGS) five.c -o five.exe
 	$(CC) $(CFLAGS) -g  six.c -o six.exe
 	$(CC) $(CFLAGS) -g  seven.c -o seven.exe
+	$(CC) $(CFLAGS) -g  eight.c -o eight.exe
 	
 run: all
 	./one.exe
@@ -24,6 +25,7 @@ run: all
 	./five.exe
 	./six.exe
 	./seven.exe
+	./eight.exe
 
 one:
 	./one.exe
@@ -45,6 +47,9 @@ six:
 
 seven:
 	./seven.exe
+
+eight:
+	./eight.exe
 
 clean:
 	rm -f *.exe
