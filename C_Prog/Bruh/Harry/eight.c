@@ -154,7 +154,8 @@ void isPresent(char* string, char target){
         }
     }
     printf("\n%c is %s in string %s\n", target, found == 1 ? "present" : "Not present", string);
-}
+    // Maybe also say where the chars were found
+}   
 
 int main(){
 
