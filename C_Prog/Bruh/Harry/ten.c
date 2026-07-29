@@ -5,8 +5,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> // For strcat 
 
-#define file "./samplefile.txt"
+#define myFile "./samplefile.txt"
 
 /*
 void readFile(){
@@ -53,6 +54,91 @@ writeFile(){
     //fclose(source); // Need to free it once done to release it
 }
 */
+void wrString(char* file){
+    FILE *ptr;
+    ptr = fopen(file, "w+");
+    if (!ptr)
+    {
+        perror("znError opening the file!");
+        return;
+    }
+
+    char str[] = "\ntHIS IS AMAZING!\n";
+    fputs(str, ptr);
+
+    rewind(ptr);
+
+    if(fgets(str, 16, ptr) != NULL)
+    {
+        puts(str);
+    }
+
+    printf("The string read is %s", str);
+
+    fclose(ptr); // Force the file to close and clean up streams
+}
+
+
+void wrNumbers(char* file){
+    FILE *ptr;
+    ptr = fopen(file, "w+");
+    if (!ptr)
+    {
+        perror("\nError opening the file!");
+        return;
+    }
+
+    for(int i = 0; i < 5; i++){
+        fprintf(ptr, "%d ", 12);
+    }
+    rewind(ptr);
+
+    int x;
+
+    while(fscanf(ptr, "%d ", &x) == 1)
+        printf("\nNumber: %d", x);
+    
+    printf("\nThe value of i is %d", x);
+
+    fclose(ptr); // Force the file to close and clean up streams
+}
+
+void writeMultiTable(char* file, int n){
+    FILE* ptr = fopen(file, "a");
+    if(!ptr){
+        perror("\nError opening the file!");
+        return;
+    }
+    printf("\n");
+    for(int i = 1; i <= 12; i++){
+        fprintf(ptr, "%d * %d = %d\n", i, n, i * n);
+    }
+    printf("\nDone!");
+}
+
+void copyFile(const char* file){
+    FILE* source = fopen(file, "r");
+    if(!source){
+        perror("\nError opening the file!");
+        return;
+    }
+
+    char* name = strcat("_copy.txt", file);
+
+    FILE* copy = fopen(name, "w+");
+    if(!copy){
+        perror("\nError creating copy file!");
+        return;
+    }
+
+    char ch;
+
+    while((ch = fgetc(source)) != EOF)
+        fprintf(copy, "%c", ch);
+    
+    fclose(source);
+    fclose(copy);
+}
 
 int main()
 {
@@ -77,24 +163,10 @@ int main()
     }
     fclose(ptr);
     */
-    FILE *ptr;
-    ptr = fopen("./samplefile.txt", "w+");
-    if (!ptr)
-    {
-        perror("Error opening the file!");
-        return -1;
-    }
+    wrString(myFile);
+    wrNumbers(myFile);
+    writeMultiTable("./Tables.txt", 5);
+    copyFile(myFile);
 
-    char str[] = "tHIS IS AMAZING!";
-    fputs(str, ptr);
-    rewind(ptr);
-
-    if(fgets(str, 16, ptr) != NULL)
-    {
-        puts(str);
-    }
-    printf("The value of i is %s", str);
-
-    fclose(ptr); // Force the file to close and clean up streams
     return 0;
 }
