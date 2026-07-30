@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h> // For strcat 
 
-#define myFile "./samplefile.txt"
+#define myFile "samplefile.txt"
 
 /*
 void readFile(){
@@ -59,7 +59,7 @@ void wrString(char* file){
     ptr = fopen(file, "w+");
     if (!ptr)
     {
-        perror("znError opening the file!");
+        perror("\nError opening the file!");
         return;
     }
 
@@ -116,28 +116,98 @@ void writeMultiTable(char* file, int n){
     printf("\nDone!");
 }
 
-void copyFile(const char* file){
+void insertChar(char* s, char* c, char* res){
+    int length = strlen(s);
+    // int* ptr = s;
+    int j = 0;
+    int ext_found = 0;
+
+    for(int i = 0; i < length; i++){
+        // If dot then add new characters
+        if((s[i]) == '.' && !ext_found){
+            int k = 0;
+            while(c[k] != '\0') {
+                res[j++] = c[k++];
+            }
+            ext_found = 1;
+        }
+
+        // Insert original characters 
+        res[j++] = s[i];
+    }
+ 
+    // If there was no dot extension in the filename, append it at the end
+    if (!ext_found) {
+        int k = 0;
+        while(c[k] != '\0') {
+            res[j++] = c[k++];
+        }
+    }
+    
+    res[j] = '\0'; // Null-terminate string
+}
+
+void copyFile(char* file){
     FILE* source = fopen(file, "r");
     if(!source){
         perror("\nError opening the file!");
         return;
     }
 
-    char* name = strcat("_copy.txt", file);
+    char name[64] = "_copy";
+    char resultant[64];
 
-    FILE* copy = fopen(name, "w+");
+    // strcat(name, file);
+    // printf("\n%s", name);
+
+    insertChar(file, name, resultant);
+    printf("\n%s", resultant);
+
+    FILE* copy = fopen(resultant, "w");
     if(!copy){
         perror("\nError creating copy file!");
         return;
     }
 
-    char ch;
+    int ch;
 
     while((ch = fgetc(source)) != EOF)
         fprintf(copy, "%c", ch);
     
     fclose(source);
     fclose(copy);
+}
+
+void employeeSpreadsheet(){
+
+    struct employee{
+    char name[50];
+    int salary;
+    };
+
+    struct employee employees[2];
+    // Clear the entire block of memory allocated for the array to 0
+    memset(employees, 0, sizeof(employees));
+
+    // emp man1; // Ask if I can initialize it from user input !
+    // emp man2;
+
+    scanf("%49s %d", employees[0].name, &(employees[0].salary));
+    scanf("%49s %d", employees[1].name, &(employees[1].salary));
+
+    FILE* ptr = fopen("employee_spreadsheet.txt","w");
+    if(!ptr){
+        perror("\nError creating file!");
+        return;
+    }
+    //char* names = {"man1","man2"};
+    for(int i = 0; i < 2; i++){
+    fputs(employees[i].name, ptr);
+    fputc(',', ptr);
+    fputc(' ', ptr);
+    fprintf(ptr, "%d\n", employees[i].salary);
+    }
+    fclose(ptr);
 }
 
 int main()
@@ -167,6 +237,8 @@ int main()
     wrNumbers(myFile);
     writeMultiTable("./Tables.txt", 5);
     copyFile(myFile);
+
+    employeeSpreadsheet();
 
     return 0;
 }
