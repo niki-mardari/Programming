@@ -5,56 +5,61 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> // For strcat 
+#include <string.h> // For strcat
 
 #define myFile "samplefile.txt"
 
-/*
-void readFile(){
+void writeFile(char *file)
+{
 
-     FILE* source = fopen(file, "r+");
-    // source = fopen("samplefile.txt", "r");
-    if(!source) {
+    FILE *source = fopen(file, "w+");
+    if (!source)
+    {
+        perror("\nError opening the file!");
+        return;
+    }
+
+    // Writing to a file
+    fprintf(source, "%d", 23);
+    fprintf(source, "%c", 'A');
+
+    // fgetc, fputc: used to read and write characters to/ from a file
+    fputc('C', source);
+
+    fclose(source); // Need to free it once done to release it
+}
+
+void readFile(char *file)
+{
+
+    FILE *source;
+    source = fopen(file, "r+");
+    if (!source)
+    {
         perror("\nError opening the file!");
     }
 
     char ch;
-    int i;
+    // int i;
 
-    // Reading a file
-    fscanf(source, "%c", &ch);
-    fscanf(source, "%d", &i);
-    printf("\nThe first letter is: %c", ch);
-    printf("\nThe first number is: %d", i);
+    printf("\nReading letters:\n");
+    // Reading letters in a file
+    while (!feof(source))
+    {
+        // fscanf(source, "%d", &i);
+        // fscanf(source, "%c", &ch);
+        ch = fgetc(source);
+        printf("%c", ch);
+    }
+
+    // printf("\nThe first number is: %d", i);
+    // printf("\nThe first letter is: %c", ch);
 
     fclose(source); // Need to free it once done to release it
 }
-*/
 
-/*
-writeFile(){
-
-    //FILE* source = fopen(file, "r+");
-    // source = fopen("samplefile.txt", "r");
-    //if(!source) {
-    //    perror("\nError opening the file!");
-    //}
-
-    char ch;
-
-    // Writing to a file
-    //fprintf(source, "%d", i);
-
-    // fgetc, fputc: used to read and write characters to/ from a file
-    //fputc('c', source);
-    //rewind(source); // Need to rewind because pointer increments once we put the character
-    //ch = fgetc(source);
-    printf("\n%c", ch);
-
-    //fclose(source); // Need to free it once done to release it
-}
-*/
-void wrString(char* file){
+void wrString(char *file)
+{
     FILE *ptr;
     ptr = fopen(file, "w+");
     if (!ptr)
@@ -63,23 +68,23 @@ void wrString(char* file){
         return;
     }
 
-    char str[] = "\ntHIS IS AMAZING!\n";
+    char str[] = "tHIS IS AMAZING!\n";
+    char buffer[100];
     fputs(str, ptr);
 
     rewind(ptr);
 
-    if(fgets(str, 16, ptr) != NULL)
+    while (fgets(buffer, sizeof(buffer), ptr) != NULL)
     {
-        puts(str);
+        printf("\nThe string read is: ");
+        puts(buffer);
     }
-
-    printf("The string read is %s", str);
 
     fclose(ptr); // Force the file to close and clean up streams
 }
 
-
-void wrNumbers(char* file){
+void wrNumbers(char *file)
+{
     FILE *ptr;
     ptr = fopen(file, "w+");
     if (!ptr)
@@ -88,68 +93,80 @@ void wrNumbers(char* file){
         return;
     }
 
-    for(int i = 0; i < 5; i++){
+    for (int i = 0; i < 5; i++)
+    {
         fprintf(ptr, "%d ", 12);
     }
     rewind(ptr);
 
     int x;
 
-    while(fscanf(ptr, "%d ", &x) == 1)
+    while (fscanf(ptr, "%d ", &x) == 1)
         printf("\nNumber: %d", x);
-    
+
     printf("\nThe value of i is %d", x);
 
     fclose(ptr); // Force the file to close and clean up streams
 }
 
-void writeMultiTable(char* file, int n){
-    FILE* ptr = fopen(file, "a");
-    if(!ptr){
+void writeMultiTable(char *file, int n)
+{
+    FILE *ptr = fopen(file, "a");
+    if (!ptr)
+    {
         perror("\nError opening the file!");
         return;
     }
     printf("\n");
-    for(int i = 1; i <= 12; i++){
+    for (int i = 1; i <= 12; i++)
+    {
         fprintf(ptr, "%d * %d = %d\n", i, n, i * n);
     }
     printf("\nDone!");
 }
 
-void insertChar(char* s, char* c, char* res){
+void insertChar(char *s, char *c, char *res)
+{
     int length = strlen(s);
     // int* ptr = s;
     int j = 0;
     int ext_found = 0;
 
-    for(int i = 0; i < length; i++){
+    for (int i = 0; i < length; i++)
+    {
         // If dot then add new characters
-        if((s[i]) == '.' && !ext_found){
+        if ((s[i]) == '.' && !ext_found)
+        {
             int k = 0;
-            while(c[k] != '\0') {
+            while (c[k] != '\0')
+            {
                 res[j++] = c[k++];
             }
             ext_found = 1;
         }
 
-        // Insert original characters 
+        // Insert original characters
         res[j++] = s[i];
     }
- 
+
     // If there was no dot extension in the filename, append it at the end
-    if (!ext_found) {
+    if (!ext_found)
+    {
         int k = 0;
-        while(c[k] != '\0') {
+        while (c[k] != '\0')
+        {
             res[j++] = c[k++];
         }
     }
-    
+
     res[j] = '\0'; // Null-terminate string
 }
 
-void copyFile(char* file){
-    FILE* source = fopen(file, "r");
-    if(!source){
+void copyFile(char *file)
+{
+    FILE *source = fopen(file, "r");
+    if (!source)
+    {
         perror("\nError opening the file!");
         return;
     }
@@ -163,26 +180,29 @@ void copyFile(char* file){
     insertChar(file, name, resultant);
     printf("\n%s", resultant);
 
-    FILE* copy = fopen(resultant, "w");
-    if(!copy){
+    FILE *copy = fopen(resultant, "w");
+    if (!copy)
+    {
         perror("\nError creating copy file!");
         return;
     }
 
     int ch;
 
-    while((ch = fgetc(source)) != EOF)
+    while ((ch = fgetc(source)) != EOF)
         fprintf(copy, "%c", ch);
-    
+
     fclose(source);
     fclose(copy);
 }
 
-void employeeSpreadsheet(){
+void employeeSpreadsheet()
+{
 
-    struct employee{
-    char name[50];
-    int salary;
+    struct employee
+    {
+        char name[50];
+        int salary;
     };
 
     struct employee employees[2];
@@ -195,50 +215,56 @@ void employeeSpreadsheet(){
     scanf("%49s %d", employees[0].name, &(employees[0].salary));
     scanf("%49s %d", employees[1].name, &(employees[1].salary));
 
-    FILE* ptr = fopen("employee_spreadsheet.txt","w");
-    if(!ptr){
+    FILE *ptr = fopen("employee_spreadsheet.txt", "w");
+    if (!ptr)
+    {
         perror("\nError creating file!");
         return;
     }
-    //char* names = {"man1","man2"};
-    for(int i = 0; i < 2; i++){
-    fputs(employees[i].name, ptr);
-    fputc(',', ptr);
-    fputc(' ', ptr);
-    fprintf(ptr, "%d\n", employees[i].salary);
+    // char* names = {"man1","man2"};
+    for (int i = 0; i < 2; i++)
+    {
+        // fputs(employees[i].name, ptr);
+        // fputs(", ", ptr);
+        // fprintf(ptr, "%d\n", employees[i].salary);
+        fprintf(ptr, "%s, %d\n", employees[i].name, employees[i].salary);
     }
     fclose(ptr);
 }
 
+void doubleVal(char *file)
+{
+    FILE *ptr = fopen(file, "w+");
+    if (!ptr)
+    {
+        perror("\nError opening the file!");
+        return;
+    }
+    int x;
+    while (fscanf(ptr, "%d ", &x) == 1)
+        printf("\nNumber: %d", x);
+
+    x *= 2;
+
+    rewind(ptr);
+
+    fprintf(ptr, "%d ", x);
+
+    fclose(ptr); // Force the file to close and clean up streams
+}
+
 int main()
 {
-
-    // readFile();
-    // writeFile();
-
-    /*
-    FILE *ptr;
-    ptr = fopen(file, "r");
-    if(!ptr) {
-        perror("\nError opening the file!");
-        return -1;
-    }
-
-    int ch;
-    while(1){
-
-    ch = fgetc(ptr);
-    if(ch != EOF) printf("\nThe value of ch is %c\n", (char)ch);
-    else break;
-    }
-    fclose(ptr);
-    */
+    writeFile("example.txt");
+    readFile("example.txt");
     wrString(myFile);
     wrNumbers(myFile);
     writeMultiTable("./Tables.txt", 5);
     copyFile(myFile);
 
     employeeSpreadsheet();
+
+    doubleVal("number.txt");
 
     return 0;
 }
