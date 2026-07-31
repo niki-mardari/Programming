@@ -1,0 +1,10 @@
+# Trying out CMAKE
+
+cmake_minimum_required(VERSION 3.16)
+project(MultiFileProgram LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+# Add all source files needed for the executable
+add_executable(MultiFileProgram one.cpp)
