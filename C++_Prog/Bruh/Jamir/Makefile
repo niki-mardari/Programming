@@ -9,7 +9,7 @@ CFLAGS = -Wall -Wextra -std=c++23
 
 all: one.cpp two.cpp
 	$(CC) $(CFLAGS) one.cpp -o one.exe
-	$(CC2) $(CFLAGS) two.cpp -o two.exe
+	$(CC) $(CFLAGS) two.cpp -o two.exe -lgdi32
 
 run: all
 	./one.exe

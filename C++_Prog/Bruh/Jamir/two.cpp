@@ -34,8 +34,11 @@ BITMAPINFO bmi; // A data struct holding info necessary to create a bitmap
 // Windows requires this to draw:
 PAINTSTRUCT ps;
 
-int screenw = GetSystemMetrics(SM_CXSCREEN);
-int screenh = GetSystemMetrics(SM_CYSCREEN);
+//int screenw = GetSystemMetrics(SM_CXSCREEN);
+//int screenh = GetSystemMetrics(SM_CYSCREEN);
+
+int screenw = 100;
+int screenh = 100;
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
