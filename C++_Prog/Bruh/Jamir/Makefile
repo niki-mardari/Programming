@@ -14,6 +14,7 @@ all: one.cpp two.cpp
 run: all
 	./one.exe
 	./two.exe
+	./three.exe
 
 one:
 	./one.exe
