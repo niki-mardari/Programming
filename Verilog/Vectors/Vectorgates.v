@@ -14,6 +14,8 @@ module top_module(
     assign out_or_bitwise[0] = ( a[0] | b[0] );
     assign out_or_bitwise[1] = ( a[1] | b[1] );
     assign out_or_bitwise[2] = ( a[2] | b[2] );
+    // Or could do:
+    // out_or_bitwise = a | b;
     
     // Logical or (||)
     assign out_or_logical = ( a || b );
