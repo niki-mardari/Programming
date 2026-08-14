@@ -48,10 +48,19 @@ module top_module (
     output [24:0] out 
 );
 
-    // Vector 1: aaaaa_bbbbb_ccccc_ddddd_eeeee
+    // Vector 1: aaaaa_bbbbb_ccccc_ddddd_eeeee (NOTS)
     // Vector 2: abcde_abcde_abcde_abcde_abcde
     assign out = ~{ {5{a}}, {5{b}}, {5{c}}, {5{d}}, {5{e}} } ^ { 5{a,b,c,d,e} };
 
 endmodule
+
+*/
+
+// Or like this:
+/*
+	wire [24:0] top, bottom;
+	assign top    = { {5{a}}, {5{b}}, {5{c}}, {5{d}}, {5{e}} };
+	assign bottom = {5{a,b,c,d,e}};
+	assign out = ~top ^ bottom;	// Bitwise XNOR
 
 */
