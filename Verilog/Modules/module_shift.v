@@ -3,7 +3,7 @@
 // Verilog code for Rising edge D flip flop with Synchronous Reset input 
 module my_dff ( 
     input clk, 
-    input d, 
+    input d,  
     output reg q  // Must be a 'reg' to store the value
 );
 
