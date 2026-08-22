@@ -7,6 +7,8 @@
 // Essentially we solve this by duplicating the two modules and using a 2-to-1 mux 
 // To allow both possible options to calculate and select the correct result 
 
+// carry-select adder
+
 module top_module(
     input [31:0] a,
     input [31:0] b,
