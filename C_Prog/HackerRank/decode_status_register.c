@@ -43,3 +43,37 @@ int main(){
 
         return 0;
 }
+
+/*
+Could also use a loop and switch case like this:
+
+for (uint8_t i = 0; i < 6; i++) {
+
+    if (status & (1 << i)) {
+        switch (i) {
+            case 0:
+                printf("\nSENSOR_READY");
+                break;
+            case 1:
+                printf("\nOVER_TEMPERATURE");
+                break;
+            case 2:
+                printf("\nDATA_AVAILABLE");
+                break;
+            case 3:
+                printf("\nBATTERY_LOW");
+                break;
+            case 4:
+                printf("\nCOMMUNICATION_ERROR");
+                break;
+            case 5:
+                printf("\nCALIBRATING\n");
+                break;
+            default:
+                break;
+        }
+    }
+}
+return 0;
+
+*/
